@@ -8,13 +8,18 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+# sugar360 doesn't own any doctype it reads — every query in sugar_360/*.py runs against
+# doctypes defined by these apps (Cane Weight, HT Contract, Season, Auto Token, ... from
+# quantbit_agriculture_crm; Process Order, Finished Goods, Bi-Products from
+# quantbit_process_manufacturing; Sales/Purchase Invoice, GL Entry, Item, Bin, Stock Ledger
+# Entry from erpnext). Without these installed first, sugar360's pages fail outright.
+required_apps = ["erpnext", "quantbit_agriculture_crm", "quantbit_process_manufacturing"]
 
 # Each item in the list will be shown as an app in the apps page
 add_to_apps_screen = [
 	{
 		"name": "sugar360",
-		"logo": "/assets/sugar360/frontend/favicon.svg",
+		"logo": "/assets/sugar360/frontend/favicon.ico",
 		"title": "Sugar 360",
 		"route": "/sugar360",
 		"has_permission": "sugar360.sugar_360.access.has_app_permission",
