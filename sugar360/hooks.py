@@ -11,15 +11,27 @@ app_license = "mit"
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "sugar360",
-# 		"logo": "/assets/sugar360/logo.png",
-# 		"title": "Sugar 360",
-# 		"route": "/sugar360",
-# 		"has_permission": "sugar360.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "sugar360",
+		"logo": "/assets/sugar360/frontend/favicon.svg",
+		"title": "Sugar 360",
+		"route": "/sugar360",
+		"has_permission": "sugar360.sugar_360.access.has_app_permission",
+	}
+]
+
+# Website Route Rules
+# --------------------
+
+website_route_rules = [
+	{"from_route": "/sugar360/<path:app_path>", "to_route": "sugar360"},
+]
+
+# Installation
+# ------------
+
+after_install = "sugar360.install.after_install"
 
 # Includes in <head>
 # ------------------

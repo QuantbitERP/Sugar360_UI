@@ -1,0 +1,33 @@
+{
+  "name": "sugar360-ui",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 3007",
+    "build": "tsc && vite build --base=/assets/sugar360/frontend/ && yarn copy-html-entry",
+    "copy-html-entry": "cp ../sugar360/public/frontend/index.html ../sugar360/www/sugar360.html",
+    "preview": "vite preview --host 0.0.0.0 --port 3007"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.66.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.0",
+    "recharts": "^2.15.0",
+    "tailwind-merge": "^3.0.1",
+    "tw-animate-css": "^1.3.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.6",
+    "@types/node": "^22.13.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.6",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
+}

@@ -1,0 +1,448 @@
+:root{
+  /* ProcureX theme tokens mapped onto the Sugar 360 dashboard */
+  --brand:#1A1D26;--brand-mid:#2C3140;--brand-light:#F1F2F4;
+  --white:#ffffff;--bg:#FAFAFB;--border:#E6E7EA;--border-s:#D3D6DC;
+  --text:#1A1D26;--text2:#6E7480;--text3:#8A909C;
+  --radius:12px;--radius-sm:8px;
+  --ch:#1FA45C;--ch-bg:#F1FAF4;--ch-border:#CBEBD8;
+  --md:#3B7BE0;--md-bg:#F1F6FD;--md-border:#CBDEF8;
+  --fi:#5B63D3;--fi-bg:#F3F4FD;--fi-border:#D6D9F6;
+  --pu:#C7891B;--pu-bg:#FDF8EC;--pu-border:#F2E0B4;
+  --sa:#D3453F;--sa-bg:#FDF2F2;--sa-border:#F6D3D2;
+  --ag:#1FA45C;--ag-bg:#F1FAF4;--ag-border:#CBEBD8;
+  --ok:#1FA45C;--warn:#C7891B;--risk:#D3453F;--info:#3B7BE0;
+}
+/* ── Reset ── */
+
+.dash-panel{display:none}
+
+.dash-panel.active{display:block}
+
+/* ── Panel Header ── */
+
+.panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+
+.panel-title-wrap{display:flex;align-items:center;gap:12px}
+
+.panel-role-badge{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px}
+
+.panel-title{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.4px}
+
+.panel-sub{font-size:11px;color:var(--text3);margin-top:2px}
+
+.panel-date{font-size:11px;color:var(--text3);background:var(--white);border:1px solid var(--border);padding:5px 12px;border-radius:6px}
+
+/* ── KPI Cards ── */
+
+.kpi-row{display:grid;gap:10px;margin-bottom:12px}
+
+.kpi-row.cols-6{grid-template-columns:repeat(6,1fr)}
+
+.kpi-row.cols-5{grid-template-columns:repeat(5,1fr)}
+
+.kpi-row.cols-4{grid-template-columns:repeat(4,1fr)}
+
+.kpi-row.cols-3{grid-template-columns:repeat(3,1fr)}
+
+.kpi{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:14px 15px;position:relative;overflow:hidden;box-shadow:0 1px 0 0 rgba(15,23,42,.02)}
+
+.kpi-accent{position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:var(--radius) 0 0 var(--radius)}
+
+.kpi-label{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}
+
+.kpi-val{font-size:20px;font-weight:700;color:var(--text);letter-spacing:-.5px;line-height:1}
+
+.kpi-unit{font-size:11px;font-weight:500;color:var(--text3)}
+
+.kpi-delta{font-size:10px;margin-top:4px;font-weight:500;display:flex;align-items:center;gap:3px}
+
+.kpi-delta.up{color:var(--ok)}.kpi-delta.dn{color:var(--risk)}.kpi-delta.nt{color:var(--text3)}
+
+.kpi-mini-bar{height:3px;background:var(--bg);border-radius:2px;margin-top:7px;overflow:hidden}
+
+.kpi-mini-fill{height:100%;border-radius:2px}
+
+.kpi-tav{display:flex;gap:4px;margin-top:7px;padding-top:6px;border-top:1px solid var(--bg)}
+
+.kpi-tav-item{flex:1;text-align:center}
+
+.kpi-tav-val{font-size:10px;font-weight:700;color:var(--text)}
+
+.kpi-tav-label{font-size:8px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+
+/* ── Grid Layouts ── */
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+
+.grid-2-1{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px}
+
+.grid-1-2{display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-bottom:14px}
+
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+
+/* ── Cards ── */
+
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:0 1px 0 0 rgba(15,23,42,.02)}
+
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+
+.card-title{font-size:13px;font-weight:600;color:var(--text)}
+
+.card-sub{font-size:11px;color:var(--text3);margin-bottom:12px}
+
+.chart-wrap{position:relative;width:100%}
+
+/* ── Alerts ── */
+
+.alert-list{display:flex;flex-direction:column;gap:6px}
+
+.alert-item{display:flex;align-items:flex-start;gap:10px;padding:9px 11px;border-radius:8px;border:1px solid}
+
+.alert-item.r{background:#FDF2F2;border-color:#F6D3D2}
+
+.alert-item.a{background:#FDF8EC;border-color:#F2E0B4}
+
+.alert-item.g{background:#F1FAF4;border-color:#CBEBD8}
+
+.alert-item.b{background:#F1F6FD;border-color:#CBDEF8}
+
+.alert-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
+
+.alert-dot.r{background:#DC2626}.alert-dot.a{background:#D97706}.alert-dot.g{background:#059669}.alert-dot.b{background:#2563EB}
+
+.alert-body{flex:1}
+
+.alert-title{font-size:12px;font-weight:600;color:var(--text)}
+
+.alert-desc{font-size:11px;color:var(--text3);margin-top:1px}
+
+.alert-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;flex-shrink:0;align-self:center}
+
+.alert-badge.r{background:#FBE7E6;color:#9B2C27}
+
+.alert-badge.a{background:#FAF0DC;color:#8A5F13}
+
+.alert-badge.g{background:#E4F5EB;color:#16713F}
+
+.alert-badge.b{background:#E7EFFB;color:#2A5BB0}
+
+/* ── Status Rows ── */
+
+.status-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bg)}
+
+.status-row:last-child{border-bottom:none}
+
+.status-label{font-size:11px;color:var(--text3)}
+
+.status-val{font-size:11px;font-weight:600;color:var(--text)}
+
+.status-val.ok{color:var(--ok)}.status-val.warn{color:var(--warn)}.status-val.risk{color:var(--risk)}
+
+/* ── Pills ── */
+
+.pill{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px}
+
+.pill.ok{background:#E4F5EB;color:#16713F}
+
+.pill.warn{background:#FAF0DC;color:#8A5F13}
+
+.pill.risk{background:#FBE7E6;color:#9B2C27}
+
+.pill.info{background:#E7EFFB;color:#2A5BB0}
+
+.pill.neu{background:#F1F2F4;color:#6E7480}
+
+.pill.brand{background:var(--brand-light);color:var(--brand)}
+
+/* ── Progress Bars ── */
+
+.prog-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+
+.prog-label{font-size:11px;color:var(--text3);width:90px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.prog-bar{flex:1;height:7px;background:var(--bg);border-radius:4px;overflow:hidden}
+
+.prog-fill{height:100%;border-radius:4px}
+
+.prog-num{font-size:11px;font-weight:600;color:var(--text);width:52px;text-align:right;flex-shrink:0}
+
+/* ── Table ── */
+
+.table-wrap{width:100%;overflow-x:auto}
+
+table.s360{width:100%;border-collapse:collapse;font-size:12px}
+
+table.s360 th{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;padding:6px 10px;text-align:left;border-bottom:1.5px solid var(--border)}
+
+table.s360 td{padding:7px 10px;border-bottom:1px solid var(--bg);color:var(--text)}
+
+table.s360 tr:last-child td{border-bottom:none}
+
+table.s360 tr:hover td{background:var(--bg)}
+
+table.s360 .td-right{text-align:right}
+
+/* ── Section Separator ── */
+
+.section-sep{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.7px;margin:14px 0 9px;display:flex;align-items:center;gap:8px}
+
+.section-sep::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── Cluster Labels (MD Panel) ── */
+
+.cluster-label{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin:10px 0 7px;display:flex;align-items:center;gap:8px;padding-left:10px;border-left:3px solid var(--border-s)}
+
+.cluster-label.fin{border-color:var(--fi);color:var(--fi)}
+
+.cluster-label.ops{border-color:var(--ch);color:var(--ch)}
+
+.cluster-label.prd{border-color:var(--sa);color:var(--sa)}
+
+/* ── Efficiency Flow ── */
+
+.eff-flow{display:flex;align-items:center;padding:14px 16px;background:linear-gradient(135deg,var(--ch-bg) 0%,var(--white) 80%);border:1px solid var(--ch-border);border-radius:var(--radius);margin-bottom:14px;gap:0;overflow-x:auto}
+
+.eff-node{text-align:center;flex:1;padding:0 12px;min-width:110px}
+
+.eff-node-label{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+
+.eff-node-val{font-size:19px;font-weight:700;color:var(--text);letter-spacing:-.4px;line-height:1}
+
+.eff-node-unit{font-size:10px;color:var(--text3);font-weight:500}
+
+.eff-node-delta{font-size:10px;margin-top:3px}
+
+.eff-arrow{color:var(--text3);font-size:18px;padding:0 4px;flex-shrink:0}
+
+.eff-recovery{background:var(--pu-bg);border:2px dashed var(--pu);border-radius:50%;width:74px;height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;text-align:center}
+
+.eff-recovery .eff-node-val{font-size:15px;color:var(--warn)}
+
+.eff-recovery .eff-node-label{font-size:8px;color:var(--warn)}
+
+/* ── Diesel Widget ── */
+
+.diesel-widget{background:linear-gradient(135deg,#FAF0DC 0%,#FDF8EC 100%);border:1px solid var(--pu-border);border-radius:var(--radius);padding:14px;margin-bottom:14px}
+
+.diesel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+
+.diesel-title{font-size:13px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+
+.diesel-gauge-row{display:flex;align-items:stretch;gap:16px}
+
+.diesel-level-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+
+.diesel-level{width:52px;height:90px;background:#E4EAE7;border-radius:8px;overflow:hidden;position:relative;border:2px solid var(--pu-border)}
+
+.diesel-level-fill{position:absolute;bottom:0;left:0;right:0;background:var(--warn);border-radius:0 0 6px 6px;transition:height .4s ease}
+
+.diesel-level-pct{font-size:11px;font-weight:700;color:var(--warn)}
+
+.diesel-kpis{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:7px}
+
+.diesel-kpi{background:rgba(255,255,255,.7);border-radius:7px;padding:8px 10px;border:1px solid rgba(217,119,6,.2)}
+
+.diesel-kpi-label{font-size:9px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+
+.diesel-kpi-val{font-size:14px;font-weight:700;color:var(--text);margin-top:2px}
+
+/* ── Vehicle Status Strip ── */
+
+.vehicle-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+
+.veh-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-align:center}
+
+.veh-box-icon{font-size:22px;margin-bottom:4px}
+
+.veh-box-val{font-size:22px;font-weight:700;color:var(--text);line-height:1}
+
+.veh-box-label{font-size:10px;color:var(--text3);font-weight:600;margin-top:3px}
+
+.veh-box.in-transit{border-color:var(--ch-border);background:var(--ch-bg)}
+
+.veh-box.at-factory{border-color:var(--pu-border);background:var(--pu-bg)}
+
+/* ── Metric Trio ── */
+
+.metric-trio{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--white);margin-bottom:12px}
+
+.metric-trio-item{flex:1;padding:10px 12px;text-align:center;border-right:1px solid var(--border)}
+
+.metric-trio-item:last-child{border-right:none}
+
+.metric-trio-label{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+
+.metric-trio-val{font-size:16px;font-weight:700;color:var(--text);margin-top:3px}
+
+/* ── Stock Level Bar ── */
+
+.stock-level-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+
+.stock-level-label{font-size:11px;color:var(--text);font-weight:500;width:110px;flex-shrink:0}
+
+.stock-bar-wrap{flex:1;height:8px;background:var(--bg);border-radius:4px;position:relative;overflow:visible}
+
+.stock-bar-fill{height:100%;border-radius:4px}
+
+.stock-min-marker{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--risk);border-radius:1px}
+
+.stock-max-marker{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ok);border-radius:1px}
+
+.stock-level-num{font-size:11px;font-weight:600;color:var(--text);width:80px;text-align:right;flex-shrink:0}
+
+/* ── Scrollable Alert Feed ── */
+
+.alert-feed{max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding-right:2px}
+
+.alert-feed::-webkit-scrollbar{width:4px}
+
+.alert-feed::-webkit-scrollbar-thumb{background:var(--border-s);border-radius:2px}
+
+.alert-cat{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;padding:4px 0 3px;margin-top:4px}
+
+/* ── Finance KPI Boxes ── */
+
+.fi-kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+
+.fi-kpi{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;position:relative;overflow:hidden}
+
+.fi-kpi-accent{position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:var(--radius) 0 0 var(--radius)}
+
+.fi-kpi-label{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}
+
+.fi-kpi-val{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.4px}
+
+.fi-kpi-unit{font-size:10px;color:var(--text3)}
+
+.fi-kpi-note{font-size:10px;color:var(--text3);margin-top:4px;font-weight:500}
+
+/* Wrapper added by the React port — keeps original body layout semantics */
+
+.s360-app{font-family:'Manrope',sans-serif;color:var(--text)}
+
+.dash-panel{display:none}
+
+.dash-panel.active{display:block}
+
+.dash-panel{display:none}
+.dash-panel.active{display:block}
+.s360-app{font-family:'Manrope',sans-serif;color:var(--text)}
+
+/* ── MD / Management executive bento KPIs ── */
+#panel-cmd .panel-title,
+#panel-cmd .cluster-label,
+#panel-cmd .kpi-val{font-family:'Sora',sans-serif}
+
+#panel-cmd .cluster-label{
+  min-height:28px;
+  margin:18px 0 10px;
+  padding:0 0 0 13px;
+  border-left-width:4px;
+  font-size:10px;
+  letter-spacing:.8px;
+  color:var(--text);
+}
+
+#panel-cmd .cluster-label::after{background:linear-gradient(90deg,var(--border),transparent)}
+
+#panel-cmd .md-bento{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-auto-flow:row dense;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+#panel-cmd .md-bento .kpi{
+  min-width:0;
+  min-height:118px;
+  padding:16px;
+  border-color:var(--border);
+  border-radius:10px;
+  box-shadow:0 1px 2px rgba(15,23,42,.035),0 8px 24px rgba(15,23,42,.025);
+  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
+}
+
+#panel-cmd .md-bento .kpi:hover{
+  transform:translateY(-2px);
+  border-color:var(--border-s);
+  box-shadow:0 2px 4px rgba(15,23,42,.045),0 12px 30px rgba(15,23,42,.07);
+}
+
+#panel-cmd .md-bento .kpi-accent{
+  left:0;
+  right:0;
+  top:0;
+  bottom:auto;
+  width:auto;
+  height:3px;
+  border-radius:10px 10px 0 0;
+}
+
+#panel-cmd .md-bento .kpi-label{
+  min-height:24px;
+  margin-bottom:10px;
+  font-size:9px;
+  line-height:1.35;
+  letter-spacing:.7px;
+}
+
+#panel-cmd .md-bento .kpi-val{
+  font-size:22px;
+  line-height:1.05;
+  letter-spacing:0;
+}
+
+#panel-cmd .md-bento .kpi-unit{font-family:'Manrope',sans-serif;font-size:10px}
+#panel-cmd .md-bento .kpi-delta{min-height:15px;margin-top:7px;font-size:9px;line-height:1.45}
+#panel-cmd .md-bento .kpi-mini-bar{height:4px;margin-top:auto;transform:translateY(7px)}
+#panel-cmd .md-bento .kpi-tav{margin-top:auto;padding-top:9px}
+
+#panel-cmd .md-bento-finance .kpi{grid-column:span 2}
+#panel-cmd .md-bento-finance .kpi:first-child{
+  background:var(--brand);
+  border-color:var(--brand);
+  color:var(--white);
+}
+#panel-cmd .md-bento-finance .kpi:first-child .kpi-label,
+#panel-cmd .md-bento-finance .kpi:first-child .kpi-unit,
+#panel-cmd .md-bento-finance .kpi:first-child .kpi-tav-label{color:rgba(255,255,255,.55)}
+#panel-cmd .md-bento-finance .kpi:first-child .kpi-val,
+#panel-cmd .md-bento-finance .kpi:first-child .kpi-tav-val{color:var(--white)}
+#panel-cmd .md-bento-finance .kpi:first-child .kpi-tav{border-top-color:rgba(255,255,255,.12)}
+#panel-cmd .md-bento-finance .kpi:nth-child(3){background:var(--sa-bg);border-color:var(--sa-border)}
+
+#panel-cmd .md-bento-operations .kpi{grid-column:span 2}
+#panel-cmd .md-bento-operations .kpi:nth-child(2),
+#panel-cmd .md-bento-operations .kpi:nth-child(4){grid-column:span 3}
+#panel-cmd .md-bento-operations .kpi:nth-child(4){background:var(--ch-bg);border-color:var(--ch-border)}
+
+#panel-cmd .md-bento-production .kpi{grid-column:span 2}
+#panel-cmd .md-bento-production .kpi:nth-child(2){background:var(--pu-bg);border-color:var(--pu-border)}
+
+@media (max-width:1100px){
+  #panel-cmd .md-bento .kpi,
+  #panel-cmd .md-bento-finance .kpi:first-child,
+  #panel-cmd .md-bento-finance .kpi:nth-child(3),
+  #panel-cmd .md-bento-operations .kpi:nth-child(2),
+  #panel-cmd .md-bento-operations .kpi:nth-child(4),
+  #panel-cmd .md-bento-production .kpi:nth-child(1),
+  #panel-cmd .md-bento-production .kpi:nth-child(2){grid-column:span 4}
+}
+
+@media (max-width:720px){
+  #panel-cmd .md-bento .kpi,
+  #panel-cmd .md-bento-finance .kpi:first-child,
+  #panel-cmd .md-bento-finance .kpi:nth-child(3),
+  #panel-cmd .md-bento-operations .kpi:nth-child(2),
+  #panel-cmd .md-bento-operations .kpi:nth-child(4),
+  #panel-cmd .md-bento-production .kpi:nth-child(1),
+  #panel-cmd .md-bento-production .kpi:nth-child(2){grid-column:span 12}
+}
+
+@media (prefers-reduced-motion:reduce){
+  #panel-cmd .md-bento .kpi{transition:none}
+  #panel-cmd .md-bento .kpi:hover{transform:none}
+}

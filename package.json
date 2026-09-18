@@ -1,0 +1,10 @@
+{
+	"private": true,
+	"name": "sugar360",
+	"description": "Sugar 360 - Sugar Mill Decision Intelligence portal",
+	"scripts": {
+		"postinstall": "cd frontend && yarn install --check-files",
+		"dev": "cd frontend && yarn dev",
+		"build": "cd frontend && yarn build"
+	}
+}
