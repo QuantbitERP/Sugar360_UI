@@ -69,7 +69,7 @@ def _fetch_trip_sheet_links(token_names: list[str]) -> list[dict]:
 		return []
 	return frappe.get_list(
 		"Auto Token Trip sheet Details",
-		parent="Auto Token",
+		parent_doctype="Auto Token",
 		filters=[["parent", "in", token_names]],
 		fields=["parent", "trip_sheet_no"],
 		limit_page_length=0,

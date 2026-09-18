@@ -85,7 +85,7 @@ def fetch_product_wise_revenue(item_codes: list[str]) -> list[dict]:
 		return []
 	rows = frappe.get_list(
 		"Sales Invoice Item",
-		parent="Sales Invoice",
+		parent_doctype="Sales Invoice",
 		filters=[["docstatus", "=", 1], ["item_code", "in", item_codes]],
 		fields=["item_code", "sum(amount) as total"],
 		group_by="item_code",
@@ -157,7 +157,7 @@ def fetch_purchase_by_item_group(from_date: str, to_date: str) -> list[dict]:
 		return []
 	rows = frappe.get_list(
 		"Purchase Invoice Item",
-		parent="Purchase Invoice",
+		parent_doctype="Purchase Invoice",
 		filters=[["docstatus", "=", 1], ["parent", "in", names]],
 		fields=["item_group", "sum(amount) as total"],
 		group_by="item_group",
@@ -173,7 +173,7 @@ def fetch_grade_wise_sales(invoice_names: list[str], item_codes: list[str]) -> l
 		return []
 	rows = frappe.get_list(
 		"Sales Invoice Item",
-		parent="Sales Invoice",
+		parent_doctype="Sales Invoice",
 		filters=[["docstatus", "=", 1], ["parent", "in", invoice_names], ["item_code", "in", item_codes]],
 		fields=["item_code", "sum(qty) as qty", "sum(amount) as amount"],
 		group_by="item_code",
@@ -201,7 +201,7 @@ def fetch_sugar_price_rows(invoice_names: list[str]) -> list[dict]:
 		return []
 	return frappe.get_list(
 		"Sales Invoice Item",
-		parent="Sales Invoice",
+		parent_doctype="Sales Invoice",
 		filters=[["docstatus", "=", 1], ["parent", "in", invoice_names], ["item_group", "=", "SUGAR"]],
 		fields=["parent", "qty", "rate"],
 		limit_page_length=0,

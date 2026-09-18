@@ -121,7 +121,7 @@ def fetch_process_order_names_for_date(season: str, date: str) -> list[str]:
 def _fetch_child_breakdown(doctype: str, filters) -> list[dict]:
 	rows = frappe.get_list(
 		doctype,
-		parent="Process Order",
+		parent_doctype="Process Order",
 		filters=filters,
 		fields=["item_code", "item_name", "stock_uom", "sum(quantity_in_stock_uom) as qty", "sum(amount) as amount"],
 		group_by="item_code, item_name, stock_uom",
@@ -180,7 +180,7 @@ def fetch_consumption_for_date(item_codes: list[str], date: str) -> dict:
 		return {}
 	rows = frappe.get_list(
 		"Stock Entry Detail",
-		parent="Stock Entry",
+		parent_doctype="Stock Entry",
 		filters=[["parent", "in", entry_names], ["item_code", "in", item_codes]],
 		fields=["item_code", "sum(qty) as total"],
 		group_by="item_code",
@@ -197,7 +197,7 @@ def fetch_season_avg_sell_price(item_codes: list[str], season: str) -> float | N
 		return None
 	qty_rows = frappe.get_list(
 		"Sales Invoice Item",
-		parent="Sales Invoice",
+		parent_doctype="Sales Invoice",
 		filters=[["docstatus", "=", 1], ["season", "=", season], ["item_code", "in", item_codes]],
 		fields=["sum(qty) as qty"],
 		ignore_permissions=True,
@@ -208,7 +208,7 @@ def fetch_season_avg_sell_price(item_codes: list[str], season: str) -> float | N
 
 	amount_rows = frappe.get_list(
 		"Sales Invoice Item",
-		parent="Sales Invoice",
+		parent_doctype="Sales Invoice",
 		filters=[["docstatus", "=", 1], ["season", "=", season], ["item_code", "in", item_codes]],
 		fields=["sum(amount) as amount"],
 		ignore_permissions=True,

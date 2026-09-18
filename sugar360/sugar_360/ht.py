@@ -81,7 +81,7 @@ def _fetch_advance_detail_aggregate(request_names: list[str], group_by: str | No
 		kwargs["limit_page_length"] = 0
 	return frappe.get_list(
 		"HT Advance Request Details",
-		parent="HT Advance Request",
+		parent_doctype="HT Advance Request",
 		filters=[["parent", "in", request_names]],
 		fields=fields,
 		**kwargs,
